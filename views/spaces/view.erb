@@ -1,0 +1,20 @@
+<h2><%= @space.title %></h2>
+<p><%= @space.description %></p>
+<p>£<%= @space.price %> per night</p>
+
+<table style="width:25%">
+  <tr>
+    <td><%= @space.guests%> guests</td>
+    <td><%= @space.bedrooms%> bedrooms</td>
+    <td><%= @space.beds%> beds</td>
+    <td><%= @space.bathrooms%> bathrooms</td>
+  </tr>
+</table>
+
+If you have any questions, or would like to book the space, please contact:<br>
+<%= @space.host_name %><br>
+<%= @space.host_number %>
+<br>
+<form action="/">
+  <input type="submit" value="Back to List">
+</form>
