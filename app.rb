@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative '/dm'
+require_relative './dm'
+
+
 
 class MakersBNB < Sinatra::Base
 	enable :sessions

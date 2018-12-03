@@ -4,6 +4,7 @@ require 'dm-validations'
 require 'dm-migrations'
 require 'database_cleaner'
 require 'bcrypt'
+require 'pg'
 
 if ENV['ENVIRONMENT'] == 'test'
 	DataMapper.setup(:default, "postgres://localhost/makersbnb_test")
