@@ -1,0 +1,6 @@
+"Makers BNB"
+<% @spaces.each do |space| %>
+<a href="/spaces/<%= space.id %>">
+ <li><%= space.title %></li>
+</a>
+<% end %>
