@@ -7,8 +7,15 @@ gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'sinatra-activerecord'
-gem 'activerecord'
+gem 'rspec-sinatra'
+gem 'selenium-webdriver'
+gem 'dm-core'
+gem 'dm-postgres-adapter'
+gem 'dm-migrations'
+gem 'dm-validations'
+gem 'dm-timestamps'
+gem 'dm-noisy-failures'
+gem 'bcrypt'
 
 
 group :test do
