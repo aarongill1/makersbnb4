@@ -44,3 +44,10 @@ I would like to see only the dates that the space is available for.
 As a user,
 Until a booking request has been approved by the host,
 I can make a booking request on that space.
+
+##Database Setup
+================
+1. Navigate to project root.
+2. In terminal run: `db:setup` to create the databases.
+3. In terminal run: `db:migrate` to creat the tables.
+
