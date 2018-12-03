@@ -2,9 +2,13 @@ Description
 ===========
 Group project creating a clone of AirBnB.
 
+MVP - A pre-populated list of available spaces which are available for hire,
+which contains contact details of host as there are no user logins.
+
 
 User Stories
 ============
+
 ```As a user,
 So that I can use the service,
 I would like to create an account.```
