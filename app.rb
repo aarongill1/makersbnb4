@@ -23,5 +23,10 @@ class MakersBNB < Sinatra::Base
     @property = Property.get(params[:id])
     erb(:'property/view')
   end
+
+	get '/user/new' do
+		erb :'user/new'
+	end
+
 run! if app_file == $0
 end

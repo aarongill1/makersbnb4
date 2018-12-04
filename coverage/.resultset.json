@@ -1,7 +1,21 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/agill/projects/makersbnb4/spec/features/viewing_spaces_spec.rb": [
+      "/Users/danagajewska/Projects/MA_Wk6/makersbnb4/spec/features/sign_up_page_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/danagajewska/Projects/MA_Wk6/makersbnb4/spec/features/viewing_spaces_spec.rb": [
         1,
         1,
         1,
@@ -12,9 +26,9 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -24,6 +38,6 @@
         null
       ]
     },
-    "timestamp": 1543915087
+    "timestamp": 1543923719
   }
 }

@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-12-04T09:18:07+00:00">2018-12-04T09:18:07+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-12-04T11:41:59+00:00">2018-12-04T11:41:59+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">68.75%</span></span>
+    (<span class="covered_percent"><span class="red">46.15%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.7
+         0.46
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>1</b> files in total.
-    <b>16</b> relevant lines. 
-    <span class="green"><b>11</b> lines covered</span> and
-    <span class="red"><b>5</b> lines missed </span>
+    <b>2</b> files in total.
+    <b>26</b> relevant lines. 
+    <span class="green"><b>12</b> lines covered</span> and
+    <span class="red"><b>14</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -51,13 +51,23 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#babff14b4c856b507260043eacf5ec8d73d00752" class="src_link" title="spec/features/viewing_spaces_spec.rb">spec/features/viewing_spaces_spec.rb</a></td>
-        <td class="red strong">68.75 %</td>
+        <td class="strong"><a href="#ba97fb3e0e3104b5e24a389fa5e8c5366047a193" class="src_link" title="spec/features/sign_up_page_spec.rb">spec/features/sign_up_page_spec.rb</a></td>
+        <td class="red strong">40.0 %</td>
+        <td>12</td>
+        <td>10</td>
+        <td>4</td>
+        <td>6</td>
+        <td>0.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#29f4b9424a9959b7b4c96fc31ff7adf6d9ef91d4" class="src_link" title="spec/features/viewing_spaces_spec.rb">spec/features/viewing_spaces_spec.rb</a></td>
+        <td class="red strong">50.0 %</td>
         <td>20</td>
         <td>16</td>
-        <td>11</td>
-        <td>5</td>
-        <td>0.7</td>
+        <td>8</td>
+        <td>8</td>
+        <td>0.5</td>
       </tr>
       
     </tbody>
@@ -76,14 +86,105 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="babff14b4c856b507260043eacf5ec8d73d00752">
+        <div class="source_table" id="ba97fb3e0e3104b5e24a389fa5e8c5366047a193">
+  <div class="header">
+    <h3>spec/features/sign_up_page_spec.rb</h3>
+    <h4><span class="red">40.0 %</span> covered</h4>
+    <div>
+      <b>10</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">feature &#39;Sign up page&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  scenario &#39;sign up page form&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit &#39;/user/new&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_field &#39;username&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="5">
+          
+          
+          <code class="ruby">    expect(page).to have_field &#39;email&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="6">
+          
+          
+          <code class="ruby">    expect(page).to have_field &#39;first_name&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="7">
+          
+          
+          <code class="ruby">    expect(page).to have_field &#39;last_name&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="8">
+          
+          
+          <code class="ruby">    expect(page).to have_field &#39;password&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="9">
+          
+          
+          <code class="ruby">    expect(page).to have_field &#39;phone_number&#39;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="10">
+          
+          
+          <code class="ruby">    expect(page).to have_button &#39;Submit&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="29f4b9424a9959b7b4c96fc31ff7adf6d9ef91d4">
   <div class="header">
     <h3>spec/features/viewing_spaces_spec.rb</h3>
-    <h4><span class="red">68.75 %</span> covered</h4>
+    <h4><span class="red">50.0 %</span> covered</h4>
     <div>
       <b>16</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -147,23 +248,23 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    click_button (&#39;View Space&#39;)</code>
+          <code class="ruby">    click_button (&#39;View Property&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
           
           <code class="ruby">    expect(page).to have_content &#39;Spacious 2 bedroom near city centre&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
           
           <code class="ruby">    expect(page).to have_content &#39;£130 per night&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
           
           <code class="ruby">    expect(page).to have_content &#39;4 guests&#39;</code>
         </li>
