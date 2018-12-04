@@ -8,14 +8,20 @@ class MakersBNB < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @check_in = session[:check_in]
     @properties = Property.all
+    p @check_in
     erb(:index)
   end
 
   get '/property/:id' do
-    print params
     @property = Property.get(params[:id])
     erb(:'property/view')
+  end
+
+  post '/dates' do
+    session[:check_in] = params[:'trip-start']
+    redirect '/'
   end
 
 	get '/user/new' do
@@ -49,6 +55,7 @@ class MakersBNB < Sinatra::Base
 			flash[:message] = "Incorrect password"
 		end
 	end
+
 
 run! if app_file == $0
 end

@@ -1,6 +1,13 @@
 {
   "RSpec": {
     "coverage": {
+
+      "/Users/agill/projects/makersbnb4/spec/features/availabilty_check_spec.rb": [
+        1,
+        1,
+        null,
+        null,
+
       "/Users/maxstevenson/Projects/Makers/week_six/makersbnb4/spec/features/sign_up_page_spec.rb": [
         1,
         1,
@@ -8,15 +15,48 @@
         1,
         1,
         1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/agill/projects/makersbnb4/spec/features/viewing_spaces_spec.rb": [
+        1,
         1,
         1,
         1,
         1,
         null,
         null,
-        1,
-        1,
-        1,
         1,
         1,
         1,
@@ -53,10 +93,17 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
         null,
         null
       ]
     },
+
+    "timestamp": 1543940157
+
     "timestamp": 1543926356
+
   }
 }
