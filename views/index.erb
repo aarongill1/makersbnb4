@@ -1,10 +1,12 @@
 "Makers BNB"
 
-<% @spaces.each do |space| %>
+<% @properties.each do |property| %>
 <hr>
-  <%= space.title %>
-  <form action="/spaces/<%= space.id %>" method="get">
-    <input type="submit" name="view-space-<%=space.id%>" value="View Space">
+  <%= property.name %>
+  <br>
+  <%= property.description %>
+  <form action="/spaces/<%= property.id %>" method="get">
+    <input type="submit" name="view-space-<%=property.id%>" value="View Space">
   </form>
 
 
