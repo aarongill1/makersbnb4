@@ -8,7 +8,7 @@ class MakersBNB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @properties = Property.all(:user_id => 3)
+    @properties = Property.all
     erb(:index)
   end
 
