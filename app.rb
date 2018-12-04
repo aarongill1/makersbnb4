@@ -23,7 +23,7 @@ class MakersBNB < Sinatra::Base
 	end
 
 	post '/user/create' do
-		user = User.create(
+		@user = User.create(
 			username: params[:username],
   		email: params[:email],
   		first_name: params[:first_name],
@@ -31,13 +31,23 @@ class MakersBNB < Sinatra::Base
   		password: params[:password],
   		phone_number: params[:phone_number]
 		)
-		session[:id] = user.id
+		session[:id] = @user.id
 		redirect :'user/details'
 	end
 
 	get '/user/details' do
 		@user = User.get(session[:id])
 		erb :'user/details'
+	end
+
+	post '/user/login' do
+		@user = User.first(:username => params[:username])
+		if @user.password == params[:password]
+			session[:id] = @user.id
+			redirect :'user/details'
+		else
+			flash[:message] = "Incorrect password"
+		end
 	end
 
 run! if app_file == $0

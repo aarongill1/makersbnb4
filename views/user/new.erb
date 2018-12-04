@@ -5,8 +5,17 @@
     <title></title>
   </head>
   <body>
-    <p>Please enter your details below:</p>
 
+    <p>Log In:</p>
+    <form class="existing-user" action="/user/login" method="post">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Submit">
+    </form>
+
+    <p><%= flash[:message] %></p>
+
+    <p>Sign Up:</p>
     <form class="user-details" action="/user/create" method="post">
       <input type="text" name="username" placeholder="Username">
       <input type="password" name="password" placeholder="Password">
@@ -16,5 +25,7 @@
       <input type="text" name="phone_number" placeholder="Phone Number">
       <input type="submit" value="Submit">
     </form>
+
+    
   </body>
 </html>
