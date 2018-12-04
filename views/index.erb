@@ -1,9 +1,28 @@
-"Makers BNB"
-
-<% @properties.each do |property| %>
+<h1>Makers BNB</h1>
 <hr>
-  <%= property.description %>
-  <form action="/property/<%= property.id %>" method="get">
-    <input type="submit" name="view-property-<%=property.id%>" value="View Property">
-  </form>
-<% end %>
+<form action="/dates" method="post">
+<label for="start">Check-in Date:</label>
+<input type="date" id="check_in" name="trip-start"
+       value="2018-12-05"
+</input>
+<br>
+<br>
+<label for="end">Check-out Date:</label>
+<input type="date" id="check_out" name="trip-end"
+       value="2018-12-05"
+</input>
+<br>
+<br>
+  <input type="submit" name="check-availability" value="Check Availabilty">
+</form>
+
+  
+<% @properties.each do |property| %>
+    <% @check_in %>
+    <% if property.date_available.to_s == @check_in %>
+    <%= property.description %>
+    <form action="/property/<%= property.id %>" method="get">
+      <input type="submit" name="view-property-<%=property.id%>" value="View Property">
+    </form>
+  <%  end  %>
+  <%  end  %>

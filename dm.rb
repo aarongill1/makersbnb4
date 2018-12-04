@@ -43,6 +43,7 @@ class Property
 	property :beds,							Integer
 	property :bathrooms, 				Integer
 	property :photo_url,				String
+	property :date_available,		Date
 
 	belongs_to :user
 end

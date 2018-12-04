@@ -7,6 +7,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
 Capybara.app = MakersBNB
 
 require 'simplecov'

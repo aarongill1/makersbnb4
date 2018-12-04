@@ -1,6 +1,46 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/agill/projects/makersbnb4/spec/features/availabilty_check_spec.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null
+      ],
       "/Users/agill/projects/makersbnb4/spec/features/viewing_spaces_spec.rb": [
         1,
         1,
@@ -12,9 +52,9 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -24,6 +64,6 @@
         null
       ]
     },
-    "timestamp": 1543915087
+    "timestamp": 1543940157
   }
 }
