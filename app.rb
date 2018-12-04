@@ -3,12 +3,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './dm'
 
-if ENV['ENVIRONMENT'] == 'test'
-	set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'makersbnb_dev', pool: 2}
-else
-	set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'makersbnb', pool: 2}
-end
-
 class MakersBNB < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
