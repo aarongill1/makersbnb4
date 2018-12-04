@@ -1,0 +1,53 @@
+<style>
+.content {
+    max-width: 500px;
+    margin: auto;
+    font-family: arial;
+}
+</style>
+<body>
+<div class="content">
+
+<h2><%= @property.description %></h2>
+<p>£<%= @property.price %> per night</p>
+
+<img style="width:430px;height:300px;" src=<%= @property.name %>>
+<br>
+<br>
+<style>
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    padding: 20px;
+}
+</style>
+<table style="width:25%">
+  <tr>
+    <th>Guests</th>
+    <th>Bedrooms</th>
+    <th>Beds</th>
+    <th>Bathrooms</th>
+  </tr>
+  <tr>
+    <td><%= @property.guests%></td>
+    <td><%= @property.bedrooms%></td>
+    <td><%= @property.beds%></td>
+    <td><%= @property.bathrooms%></td>
+  </tr>
+</table>
+<br>
+<br>
+
+If you have any questions, or would like to book the space, please contact:<br><br>
+<%= @property.host_name %><br>
+<%= @property.host_number %><br>
+<br>
+
+<form action="/">
+  <input type="submit" value="Back to List">
+</form>
+</div>
+</body>

@@ -2,12 +2,8 @@
 
 <% @properties.each do |property| %>
 <hr>
-  <%= property.name %>
-  <br>
   <%= property.description %>
-  <form action="/spaces/<%= property.id %>" method="get">
-    <input type="submit" name="view-space-<%=property.id%>" value="View Space">
+  <form action="/property/<%= property.id %>" method="get">
+    <input type="submit" name="view-property-<%=property.id%>" value="View Property">
   </form>
-
-
 <% end %>

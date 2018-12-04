@@ -2,20 +2,28 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './dm'
+enable :sessions
+
+require './models/property'
+
+if ENV['ENVIRONMENT'] == 'test'
+	set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'makersbnb_dev', pool: 2}
+else
+	set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'makersbnb', pool: 2}
+end
 
 class MakersBNB < Sinatra::Base
-	enable :sessions
-	register Sinatra::Flash
+  register Sinatra::Flash
+  enable :sessions
 
-	get '/' do
-    @properties = Property.all #LOOK AT METHOD NAME
+  get '/' do
+    @properties = Property.all
     erb(:index)
   end
 
-  get '/spaces/:id' do
-  	idx = params[:id]
-    @space = Property.find(1) #DOUBLE CHECK METHOD
-    erb :'spaces/view'
+  get '/property/:id' do
+    @property = Property.find(params[:id])
+    erb(:'property/view')
   end
 
 run! if app_file == $0

@@ -48,6 +48,7 @@ I can make a booking request on that space.
 
 Database Setup
 ================
+<<<<<<< Updated upstream
 1. Navigate to project root directory.
 2. In terminal run `bundle install` to install required gems.
 3. Open psql and type `CREATE DATABASE makersbnb;` followed by `CREATE DATABASE makersbnb_test;`.
@@ -57,3 +58,9 @@ Database Setup
 7. In terminal run `ruby dm.rb` a second time to create tables for the production database.
 8. Reverse step 6 so that original code is back in place.
 
+=======
+1. Navigate to project root.
+2. In the terminal run: rake db:create to create the databases.
+3. In terminal run: rake db:setup to create the tables.
+4. In terminal run: rake db:migrate to set up the table.
+>>>>>>> Stashed changes

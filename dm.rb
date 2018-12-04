@@ -14,7 +14,7 @@ end
 
 class User
 	include DataMapper::Resource
-	User.raise_on_save_failure = true 
+	User.raise_on_save_failure = true
 
 	property :id, 						Serial
 	property :username, 			String

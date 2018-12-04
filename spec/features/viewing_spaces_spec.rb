@@ -1,13 +1,13 @@
 feature 'Viewing available spaces' do
   scenario 'A user can view spaces' do
     visit('/')
-    expect(page).to have_content "Makers BNB"
-    expect(page).to have_content "'Spacious 2 bedroom near city centre'"
+    expect(page).to have_content 'Makers BNB'
+    expect(page).to have_content 'Spacious 2 bedroom near city centre'
   end
 
   scenario 'View individual space page' do
     visit('/')
-    click_button ('view-space-1')
+    click_button ('View Property')
     expect(page).to have_content 'Spacious 2 bedroom near city centre'
     expect(page).to have_content '£130 per night'
     expect(page).to have_content '4 guests'

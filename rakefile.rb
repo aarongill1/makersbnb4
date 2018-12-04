@@ -1,6 +1,7 @@
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
 require './app'
+<<<<<<< Updated upstream
 require 'activerecord'
 
 desc "Migrate the database through scripts in db/migrate."
@@ -24,3 +25,5 @@ namespace :db do
   end
 end
 
+=======
+>>>>>>> Stashed changes
