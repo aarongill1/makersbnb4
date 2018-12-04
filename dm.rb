@@ -35,7 +35,6 @@ class Property
 	property :title, 						String
 	property :description,			String
 	property :price,						Integer
-	property :user_id						Integer
 	property :guests,						Integer
 	property :city,							String
 	property :bedrooms,					Integer

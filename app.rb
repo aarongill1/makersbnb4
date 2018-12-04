@@ -37,10 +37,13 @@ class MakersBNB < Sinatra::Base
   		password: params[:password],
   		phone_number: params[:phone_number]
 		)
+		session[:id] = user.id
 		redirect :'user/details'
 	end
 
 	get '/user/details' do
+		@user = User.get(session[:id])
+		erb :'user/details'
 	end
 
 run! if app_file == $0

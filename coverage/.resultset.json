@@ -1,21 +1,40 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/danagajewska/Projects/MA_Wk6/makersbnb4/spec/features/sign_up_page_spec.rb": [
+      "/Users/maxstevenson/Projects/Makers/week_six/makersbnb4/spec/features/sign_up_page_spec.rb": [
         1,
         1,
         1,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null,
         null
       ],
-      "/Users/danagajewska/Projects/MA_Wk6/makersbnb4/spec/features/viewing_spaces_spec.rb": [
+      "/Users/maxstevenson/Projects/Makers/week_six/makersbnb4/spec/features/viewing_spaces_spec.rb": [
         1,
         1,
         1,
@@ -38,6 +57,6 @@
         null
       ]
     },
-    "timestamp": 1543923719
+    "timestamp": 1543926356
   }
 }
