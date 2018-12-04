@@ -42,6 +42,7 @@ class Property
 	property :bedrooms,					Integer
 	property :beds,							Integer
 	property :bathrooms, 				Integer
+	property :photo_url,				String
 
 	belongs_to :user
 end

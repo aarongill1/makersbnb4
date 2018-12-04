@@ -2,9 +2,6 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './dm'
-enable :sessions
-
-require './models/property'
 
 if ENV['ENVIRONMENT'] == 'test'
 	set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'makersbnb_dev', pool: 2}
@@ -22,9 +19,9 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/property/:id' do
-    @property = Property.find(params[:id])
+    print params
+    @property = Property.get(params[:id])
     erb(:'property/view')
   end
-
 run! if app_file == $0
 end
