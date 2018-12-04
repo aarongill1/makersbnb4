@@ -1,4 +1,5 @@
 <h1>Makers BNB</h1>
+<a href="/user/new">Login / Sign up</a>
 <hr>
 <form action="/dates" method="post">
 <label for="start">Check-in Date:</label>
@@ -16,7 +17,6 @@
   <input type="submit" name="check-availability" value="Check Availabilty">
 </form>
 
-  
 <% @properties.each do |property| %>
     <% @check_in %>
     <% if property.date_available.to_s == @check_in %>
