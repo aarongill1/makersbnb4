@@ -32,7 +32,7 @@ property_1 = Property.create(
 	beds: 2,
 	bathrooms: 1,
 	available_from: Date.parse("2018-12-04"),
-	avaialable_to: 	Date.parse("2019-02-04"),
+	available_to: 	Date.parse("2019-02-04"),
 	photo_url:"https://tinyurl.com/ydfuwacb"
 )
 
@@ -47,6 +47,6 @@ property_2 = Property.create(
 	beds: 1,
 	bathrooms: 1,
 	available_from: Date.parse("2018-12-04"),
-	avaialable_to: 	Date.parse("2019-02-04"),
+	available_to: 	Date.parse("2019-02-04"),
 	photo_url:"https://tinyurl.com/yc5pekql"
 )
