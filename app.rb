@@ -43,6 +43,7 @@ class MakersBNB < Sinatra::Base
 
 	get '/user/details' do
 		@user = User.get(session[:id])
+    p session[:id]
 		erb :'user/details'
 	end
 
@@ -57,12 +58,13 @@ class MakersBNB < Sinatra::Base
 	end
 
   get '/property/new' do
+    p session[:id]
     erb :'property/new'
   end
 
   post '/property/create' do
 		@property = Property.create(
-      user_id: 1,
+      user_id: session[:id],
 			title: params[:title],
   		description: params[:description],
   		price: params[:price],
@@ -72,10 +74,9 @@ class MakersBNB < Sinatra::Base
       beds: params[:beds],
       bathrooms: params[:bathrooms],
       photo_url: params[:photo_url],
-      available_from: params[:available_from],
-      available_to: params[:available_to]
+      available_from: params[:date_from],
+      available_to: params[:date_to]
 		)
-    p params
 		# redirect "property/#{@property.id}"
     redirect "/"
 	end
