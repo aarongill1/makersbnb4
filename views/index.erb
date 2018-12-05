@@ -19,7 +19,7 @@
 
 <% @properties.each do |property| %>
     <% @check_in %>
-    <% if property.date_available.to_s == @check_in %>
+    <% if property.available_from.to_s == @check_in %>
     <%= property.description %>
     <form action="/property/<%= property.id %>" method="get">
       <input type="submit" name="view-property-<%=property.id%>" value="View Property">

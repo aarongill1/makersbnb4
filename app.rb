@@ -14,10 +14,10 @@ class MakersBNB < Sinatra::Base
     erb(:index)
   end
 
-  get '/property/:id' do
-    @property = Property.get(params[:id])
-    erb(:'property/view')
-  end
+  # get '/property/:id' do
+  #   @property = Property.get(params[:id])
+  #   erb(:'property/view')
+  # end
 
   post '/dates' do
     session[:check_in] = params[:'trip-start']
@@ -38,7 +38,7 @@ class MakersBNB < Sinatra::Base
   		phone_number: params[:phone_number]
 		)
 		session[:id] = @user.id
-		redirect :'user/details'
+		redirect 'user/details'
 	end
 
 	get '/user/details' do
@@ -50,10 +50,34 @@ class MakersBNB < Sinatra::Base
 		@user = User.first(:username => params[:username])
 		if @user.password == params[:password]
 			session[:id] = @user.id
-			redirect :'user/details'
+			redirect 'user/details'
 		else
 			flash[:message] = "Incorrect password"
 		end
+	end
+
+  get '/property/new' do
+    erb :'property/new'
+  end
+
+  post '/property/create' do
+		@property = Property.create(
+      user_id: 1,
+			title: params[:title],
+  		description: params[:description],
+  		price: params[:price],
+  		guests: params[:guests],
+  		city: params[:city],
+  		bedrooms: params[:bedrooms],
+      beds: params[:beds],
+      bathrooms: params[:bathrooms],
+      photo_url: params[:photo_url],
+      available_from: params[:available_from],
+      available_to: params[:available_to]
+		)
+    p params
+		# redirect "property/#{@property.id}"
+    redirect "/"
 	end
 
 

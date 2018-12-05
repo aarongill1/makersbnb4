@@ -6,6 +6,8 @@ require 'database_cleaner'
 require 'bcrypt'
 require 'pg'
 
+ENV['ENVIRONMENT'] = 'test'
+
 if ENV['ENVIRONMENT'] == 'test'
 	DataMapper.setup(:default, "postgres://localhost/makersbnb_test")
 else
@@ -42,7 +44,7 @@ class Property
 	property :beds,							Integer
 	property :bathrooms, 				Integer
 	property :available_from,		Date
-	property :avaialable_to,		Date
+	property :available_to,			Date
 	property :photo_url,				String, :length => 250
 
 	belongs_to :user
