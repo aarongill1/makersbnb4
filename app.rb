@@ -10,7 +10,7 @@ class MakersBNB < Sinatra::Base
   get '/' do
     @check_in = session[:check_in]
     @properties = Property.all
-    flash[:message] = "No properties are available on your date"
+    flash[:no_property_message] = "No properties are available on your date"
     erb(:index)
   end
 
@@ -57,7 +57,8 @@ class MakersBNB < Sinatra::Base
 			session[:id] = @user.id
 			redirect 'user/details'
 		else
-			flash[:message] = "Incorrect password"
+			flash[:incorrect_password_message] = "Incorrect password"
+      redirect 'user/new'
 		end
 	end
 
