@@ -24,7 +24,8 @@
 </head>
 <body>
   <div class="content">
-  <h2><%= @property.description %></h2>
+  <h2><%= @property.title %></h2>
+  <p><%= @property.description %></p>
   <p>£<%= @property.price %> per night</p>
   <img style="width:430px;height:300px;" src=<%= @property.photo_url %>>
   <br>
@@ -43,6 +44,7 @@
       <td><%= @property.bathrooms%></td>
     </tr>
   </table>
+  <h2><%= @property.available_from %> - <%= @property.available_to %></h2>
   <br>
   <br>
   <p>If you have any questions, or would like to book the space, please contact:
