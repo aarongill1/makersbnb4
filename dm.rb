@@ -42,7 +42,7 @@ class Property
 	property :beds,							Integer
 	property :bathrooms, 				Integer
 	property :available_from,		Date
-	property :avaialable_to,		Date
+	property :available_to,			Date
 	property :photo_url,				String, :length => 250
 
 	belongs_to :user

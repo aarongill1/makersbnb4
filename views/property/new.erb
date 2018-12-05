@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add a Property</title>
+  </head>
+  <body>
+    <h1>Complete the form below to add a new property</h1>
+
+    <form action="/property/create" method="post">
+      <label>Title:</label>
+      <input type="text" name="title" required><br>
+      <label>Description:</label>
+      <input type="text" name="description" required><br>
+      <label>Price</label>
+      <input type="text" name="price" required><br>
+      <label>City:</label>
+      <input type="text" name="city" required><br>
+      <label>Guests:</label>
+      <input type="text" name="guests" required>
+      <label>Bedrooms:</label>
+      <input type="text" name="bedrooms" required>
+      <label>Beds:</label>
+      <input type="text" name="beds" required>
+      <label>Bathrooms:</label>
+      <input type="text" name="bathrooms" required><br>
+      <br>
+      <label>Photo url:</label>
+      <input type="text" name="photo_url">
+      <label>Date from:</label>
+      <input type="date" name="date_from" required>
+      <label>Date to:</label>
+      <input type="date" name="date_to" required><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
