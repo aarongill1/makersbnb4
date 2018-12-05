@@ -22,7 +22,7 @@ user_2 = User.create(
 )
 
 property_1 = Property.create(
-	user_id: 1,
+	user_id: user_1.id,
 	title: "A test House",
 	description: "Spacious 2 bedroom house near the beach.",
 	price: 130,
@@ -37,7 +37,7 @@ property_1 = Property.create(
 )
 
 property_2 = Property.create(
-	user_id: 2,
+	user_id: user_2.id,
 	title: "A test Flat",
 	description: "Cramped 1 bedroom flat near city centre.",
 	price: 130,

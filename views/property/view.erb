@@ -1,53 +1,62 @@
-<style>
-.content {
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MakersBnB</title>
+
+  <style>
+  .content {
     max-width: 500px;
     margin: auto;
     font-family: arial;
-}
-</style>
-<body>
-<div class="content">
+  }
 
-<h2><%= @property.description %></h2>
-<p>£<%= @property.price %> per night</p>
-
-<img style="width:430px;height:300px;" src=<%= @property.photo_url %>>
-<br>
-<br>
-<style>
-table, th, td {
+  table, th, td {
     border: 2px solid black;
     border-collapse: collapse;
     text-align: center;
-}
-th, td {
+    width:25%;
+  }
+
+  th, td {
     padding: 20px;
 }
 </style>
-<table style="width:25%">
-  <tr>
-    <th>Guests</th>
-    <th>Bedrooms</th>
-    <th>Beds</th>
-    <th>Bathrooms</th>
-  </tr>
-  <tr>
-    <td><%= @property.guests%></td>
-    <td><%= @property.bedrooms%></td>
-    <td><%= @property.beds%></td>
-    <td><%= @property.bathrooms%></td>
-  </tr>
-</table>
-<br>
-<br>
-
-If you have any questions, or would like to book the space, please contact:<br><br>
-<%= @property.host_name %><br>
-<%= @property.host_number %><br>
-<br>
-
-<form action="/">
+</head>
+<body>
+  <div class="content">
+  <h2><%= @property.description %></h2>
+  <p>£<%= @property.price %> per night</p>
+  <img style="width:430px;height:300px;" src=<%= @property.photo_url %>>
+  <br>
+  <br>
+  <table>
+    <tr>
+      <th>Guests</th>
+      <th>Bedrooms</th>
+      <th>Beds</th>
+      <th>Bathrooms</th>
+    </tr>
+    <tr>
+      <td><%= @property.guests%></td>
+      <td><%= @property.bedrooms%></td>
+      <td><%= @property.beds%></td>
+      <td><%= @property.bathrooms%></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <p>If you have any questions, or would like to book the space, please contact:
+  <br>
+  <br>
+  <%= @user.first_name %>
+  <br>
+  <%= @user.phone_number %>
+  </p>
+  <br>
+  <br>
+  <form action="/">
   <input type="submit" value="Back to List">
-</form>
-</div>
+  </form>
+  </div>
 </body>
+</html>
