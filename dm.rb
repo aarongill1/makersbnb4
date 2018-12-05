@@ -19,12 +19,13 @@ class User
 	property :id, 						Serial
 	property :username, 			String
 	property :email, 					String
+	property :phone_number,		String
 	property :first_name, 		String
 	property :last_name,			String
-	property :password, 			String
-	property :phone_number,		String
+	property :password, 			String, :length => 140
 
 	has n, :property
+	has n, :booking
 end
 
 class Property
@@ -33,17 +34,31 @@ class Property
 
 	property :id,								Serial
 	property :title, 						String
-	property :description,			String
+	property :description,			String, :length => 250
 	property :price,						Integer
-	property :guests,						Integer
 	property :city,							String
+	property :guests,						Integer
 	property :bedrooms,					Integer
 	property :beds,							Integer
 	property :bathrooms, 				Integer
-	property :photo_url,				String
-	property :date_available,		Date
+	property :available_from,		Date
+	property :avaialable_to,		Date
+	property :photo_url,				String, :length => 250
 
 	belongs_to :user
+	has n, :booking
+end
+
+class Booking
+	include DataMapper::Resource
+	Booking.raise_on_save_failure = true
+
+	property :id,								Serial
+	property :start_date,				Date
+	property :end_date,					Date
+	property :status,						String, :length => 20
+
+	belongs_to :user, :property
 end
 
 DataMapper.finalize
