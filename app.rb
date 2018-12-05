@@ -10,7 +10,6 @@ class MakersBNB < Sinatra::Base
   get '/' do
     @check_in = session[:check_in]
     @properties = Property.all
-    p @check_in
     erb(:index)
   end
 

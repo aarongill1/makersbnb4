@@ -1,31 +1,38 @@
 feature 'Viewing available dates' do
   scenario 'A user can view properties that are available on a given date' do
 
-    user = User.create(
-      username: "test"
+    check_in = Date.parse("2018-04-12")
+    check_out = Date.parse("2018-04-12")
+
+    user_2 = User.create(
+      username: "testAccount2",
+      email: "testingacc2@hotmail.com",
+      phone_number: "07738623766",
+      first_name: "Test",
+      last_name: "Account",
+      password: "password123"
     )
 
-    property = Property.create(
-
+    property_1 = Property.create(
       user_id: 1,
-      title: "test",
-      description: "Spacious 2 bedroom near city centre",
+      title: "A test House",
+      description: "Spacious 2 bedroom house near the beach.",
       price: 130,
-      host_name: "Dana",
-      host_number: "1234567890",
-      city: "London",
+      city: "Margate",
       guests: 4,
       bedrooms: 2,
       beds: 2,
       bathrooms: 1,
-      date_available: Date.parse("2018-12-04"),
-      )
+      available_from: Date.parse("2018-12-04"),
+      avaialable_to:  Date.parse("2019-02-04"),
+      photo_url:"https://tinyurl.com/ydfuwacb"
+    )
 
     visit('/')
-    fill_in "check_in", :with => "04/12/2018"
-    fill_in "check_out", :with => "13/12/2018"
-    click_button('Check Availabilty')
+    fill_in "check_in", :with => "2018-12-04"
+    fill_in "check_out", :with => "2018-12-06"
+    click_button("Check Availabilty")
     click_button('View Property')
-    expect(page).to have_content 'Spacious 2 bedroom near city centre'
+    expect(page).to have_content 'Spacious 2 bedroom house near the beach'
   end
-  end
+end
