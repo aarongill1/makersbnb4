@@ -9,15 +9,17 @@ class MakersBNB < Sinatra::Base
 
   get '/' do
     @check_in = session[:check_in]
-    @properties = Property.all
     p @check_in
+    @properties = Property.all
+    flash[:message] = "No properties are available on your date"
     erb(:index)
   end
 
-  # get '/property/:id' do
-  #   @property = Property.get(params[:id])
-  #   erb(:'property/view')
-  # end
+  get '/property/:id' do
+    @property = Property.get(params[:id])
+    @user = User.get(@property.user_id)
+    erb(:'property/view')
+  end
 
   post '/dates' do
     session[:check_in] = params[:'trip-start']

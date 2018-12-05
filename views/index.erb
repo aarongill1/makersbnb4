@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MakersBnB</title>
+</head>
+<body>
 <h1>Makers BNB</h1>
 <a href="/user/new">Login / Sign up</a>
 <hr>
@@ -17,12 +23,19 @@
   <input type="submit" name="check-availability" value="Check Availabilty">
 </form>
 
+<% @property_found = false %>
 <% @properties.each do |property| %>
     <% @check_in %>
     <% if property.available_from.to_s == @check_in %>
-    <%= property.description %>
-    <form action="/property/<%= property.id %>" method="get">
-      <input type="submit" name="view-property-<%=property.id%>" value="View Property">
-    </form>
+    <% @property_found = true %>
+    	<%= property.description %>
+    	<form action="/property/<%= property.id %>" method="get">
+      	<input type="submit" name="view-property-<%=property.id%>" value="View Property">
+    	</form>
+  	<% end %>
   <%  end  %>
-  <%  end  %>
+  <% if @property_found == false %>
+  	<%= flash[:message] %>
+  <% end %>
+</body>
+</html>
