@@ -14,7 +14,7 @@ feature 'Viewing available dates' do
     )
 
     property_1 = Property.create(
-      user_id: 1,
+      user_id: user_2.id,
       title: "A test House",
       description: "Spacious 2 bedroom house near the beach.",
       price: 130,
