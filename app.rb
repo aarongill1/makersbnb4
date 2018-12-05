@@ -79,8 +79,7 @@ class MakersBNB < Sinatra::Base
       available_from: params[:date_from],
       available_to: params[:date_to]
 		)
-		# redirect "property/#{@property.id}"
-    redirect "/"
+		redirect "property/#{@property.id}"
 	end
 
 
