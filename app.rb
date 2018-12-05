@@ -9,10 +9,13 @@ class MakersBNB < Sinatra::Base
 
   get '/' do
     @check_in = session[:check_in]
-    p @check_in
     @properties = Property.all
     flash[:message] = "No properties are available on your date"
     erb(:index)
+  end
+
+  get '/property/new' do
+    erb :'property/new'
   end
 
   get '/property/:id' do
@@ -45,7 +48,6 @@ class MakersBNB < Sinatra::Base
 
 	get '/user/details' do
 		@user = User.get(session[:id])
-    p session[:id]
 		erb :'user/details'
 	end
 
@@ -58,11 +60,6 @@ class MakersBNB < Sinatra::Base
 			flash[:message] = "Incorrect password"
 		end
 	end
-
-  get '/property/new' do
-    p session[:id]
-    erb :'property/new'
-  end
 
   post '/property/create' do
 		@property = Property.create(
@@ -79,7 +76,7 @@ class MakersBNB < Sinatra::Base
       available_from: params[:date_from],
       available_to: params[:date_to]
 		)
-		redirect "property/#{@property.id}"
+		redirect "/property/#{@property.id}"
 	end
 
 
