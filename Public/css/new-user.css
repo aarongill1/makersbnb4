@@ -3,6 +3,16 @@ body {
   background-size: cover;
 }
 
+.container_1 {
+  width: 210px;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  top: 30px;
+  height: 520px;
+}
+
 .sign-in {
   text-align: center;
 }
@@ -61,4 +71,5 @@ body {
   margin: auto;
   background-color: red;
   border-color: red;
+  margin-bottom: 10px;
 }
