@@ -55,10 +55,10 @@ class MakersBNB < Sinatra::Base
 		@user = User.first(:username => params[:username])
 		if @user.password == params[:password]
 			session[:id] = @user.id
-			redirect 'user/details'
+			redirect '/user/details'
 		else
 			flash[:incorrect_password_message] = "Incorrect password"
-      redirect 'user/new'
+      redirect '/user/new'
 		end
 	end
 
@@ -79,6 +79,29 @@ class MakersBNB < Sinatra::Base
 		)
 		redirect "/property/#{@property.id}"
 	end
+
+  post '/booking/request' do
+    @booking_check = Booking.first(
+      :property_id => params[:id],
+      :start_date => params[:date_requested],
+      :status => 'approved')
+    if @booking_check == nil
+      @booking = Booking.create(
+        start_date: params[:date_requested],
+        property_id: params[:id],
+        user_id: session[:id],
+        status: 'requested'
+      )
+    redirect '/booking/request_submitted'
+    else
+      flash[:booking_unavailable] = "This property is not available on #{params[:date_requested]}"
+      redirect "/property/#{params[:id]}"
+    end
+  end
+
+  get '/booking/request_submitted' do
+    erb :'booking/request_submitted'
+  end
 
 
 run! if app_file == $0

@@ -47,13 +47,21 @@
   <h2><%= @property.available_from %> - <%= @property.available_to %></h2>
   <br>
   <br>
-  <p>If you have any questions, or would like to book the space, please contact:
+  <p>If you have any questions, please contact:
   <br>
   <br>
   <%= @user.first_name %>
   <br>
   <%= @user.phone_number %>
   </p>
+  <%= flash[:booking_unavailable] %>
+  <br>
+  <form action="/booking/request" method="post">
+    <input type="hidden" value="<%= @property.id %>" name="id" >
+    <label for="date_requested">Request Boooking for: </label>
+    <input type="date" name="date_requested">
+    <input type="submit" value="Submit Booking Request">
+  </form>
   <br>
   <form action="/">
     <input type="submit" value="Back to List">
