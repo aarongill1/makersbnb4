@@ -8,8 +8,10 @@ class MakersBNB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @check_in = session[:check_in]
-    @properties = Property.all
+    @properties = Property.all(
+      :available_from.lte => session[:check_in],
+      :available_to.gte => session[:check_in]
+    )
     flash[:no_property_message] = "No properties are available on your date"
     erb(:index)
   end
@@ -48,6 +50,11 @@ class MakersBNB < Sinatra::Base
 
 	get '/user/details' do
 		@user = User.get(session[:id])
+    @bookings = repository(:default).adapter.select(
+      'SELECT start_date, status, title
+      FROM bookings
+      JOIN properties ON bookings.property_id = properties.id;'
+    )
 		erb :'user/details'
 	end
 
@@ -55,10 +62,10 @@ class MakersBNB < Sinatra::Base
 		@user = User.first(:username => params[:username])
 		if @user.password == params[:password]
 			session[:id] = @user.id
-			redirect 'user/details'
+			redirect '/user/details'
 		else
 			flash[:incorrect_password_message] = "Incorrect password"
-      redirect 'user/new'
+      redirect '/user/new'
 		end
 	end
 
@@ -79,6 +86,35 @@ class MakersBNB < Sinatra::Base
 		)
 		redirect "/property/#{@property.id}"
 	end
+
+  post '/booking/request' do
+    @booking_check = Booking.first(
+      :property_id => params[:id],
+      :start_date => params[:date_requested],
+      :status => 'approved')
+    @property_check = Property.first(
+      :id => params[:id],
+      :available_from.lte => params[:date_requested],
+      :available_to.gte => params[:date_requested]
+    )
+    p @property_check
+    if @booking_check == nil && @property_check != nil
+      @booking = Booking.create(
+        start_date: params[:date_requested],
+        property_id: params[:id],
+        user_id: session[:id],
+        status: 'requested'
+      )
+    redirect '/booking/request_submitted'
+    else
+      flash[:booking_unavailable] = "This property is not available on #{params[:date_requested]}"
+      redirect "/property/#{params[:id]}"
+    end
+  end
+
+  get '/booking/request_submitted' do
+    erb :'booking/request_submitted'
+  end
 
 
 run! if app_file == $0
