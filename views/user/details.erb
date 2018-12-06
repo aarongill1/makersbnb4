@@ -16,9 +16,26 @@
 		phonenumber: <%= @user.phone_number %>
 	</p>
 <br>
+<h2>Your Bookings</h2>
+<% if @bookings != nil %>
+	<% @bookings.each do |booking| %>
+		<hr>
+		<%= booking.title %><br>
+		Date requested: <%= booking.start_date %><br>
+		Status: <%= booking.status.capitalize %>
+		<br>
+	<% end %>
+<% else %>
+	<p>You don't have any bookings, why not <a href="/">search through the property listings</a>?</p>
+<% end %>
+
+<br>
+<h2>Properties Listed</h2>
+<% if @properties != nil %>
+<% else %>
+	<p>You don't have any properties listed. <a href="/property/new">Add a new property here</a></p>
+<% end %>
 <hr>
-<h3>Properties Listed</h3>
-<!-- **ADD MESSAGE "You don't have any properties listed", if the user has no properties -->
-<a href="/property/new">Add a new property</a>
+
 </body>
 </html>

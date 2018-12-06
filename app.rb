@@ -50,6 +50,11 @@ class MakersBNB < Sinatra::Base
 
 	get '/user/details' do
 		@user = User.get(session[:id])
+    @bookings = repository(:default).adapter.select(
+      'SELECT start_date, status, title
+      FROM bookings
+      JOIN properties ON bookings.property_id = properties.id;'
+    )
 		erb :'user/details'
 	end
 
