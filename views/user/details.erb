@@ -20,5 +20,11 @@
 <h3>Properties Listed</h3>
 <!-- **ADD MESSAGE "You don't have any properties listed", if the user has no properties -->
 <a href="/property/new">Add a new property</a>
+
+<h3>Booking Requests</h3>
+<% @bookings.each do |booking| %> <br>
+<%= booking.start_date %>
+<% end %>
+
 </body>
 </html>

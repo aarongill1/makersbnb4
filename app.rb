@@ -47,6 +47,7 @@ class MakersBNB < Sinatra::Base
 	end
 
 	get '/user/details' do
+    @bookings = Booking.all
 		@user = User.get(session[:id])
 		erb :'user/details'
 	end
