@@ -56,7 +56,7 @@
   </p>
   <%= flash[:booking_unavailable] %>
   <br>
-  <form action="/booking/request" method="post">
+  <form class="booking-request" action="/booking/request" method="post">
     <input type="hidden" value="<%= @property.id %>" name="id" >
     <label for="date_requested">Request Boooking for: </label>
     <input type="date" name="date_requested">
