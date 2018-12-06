@@ -1,7 +1,7 @@
 feature 'Sign up page' do
   scenario 'A user can sign up' do
     visit '/user/new'
-    within('form.user-details') do
+    within('form.sign-up') do
       fill_in('username', with: 'test_account')
       fill_in('email', with: 'test_account@msn.com')
       fill_in('password', with: 'password123')
