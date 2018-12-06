@@ -22,19 +22,17 @@
 <br>
   <input type="submit" name="check-availability" value="Check Availabilty">
 </form>
-
-<% @property_found = false %>
+<br>
+<% if @properties != nil %>
 <% @properties.each do |property| %>
-    <% @check_in %>
-    <% if property.available_from.to_s == @check_in %>
-    <% @property_found = true %>
-    	<%= property.description %>
+  <hr>
+    	<h4><%= property.title %></h4>
+      <p><%= property.description %></p>
     	<form action="/property/<%= property.id %>" method="get">
       	<input type="submit" name="view-property-<%=property.id%>" value="View Property">
     	</form>
   	<% end %>
-  <%  end  %>
-  <% if @property_found == false %>
+  <% else %>
   	<%= flash[:no_property_message] %>
   <% end %>
 </body>

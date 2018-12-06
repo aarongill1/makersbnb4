@@ -8,8 +8,10 @@ class MakersBNB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @check_in = session[:check_in]
-    @properties = Property.all
+    @properties = Property.all(
+      :available_from.lte => session[:check_in],
+      :available_to.gte => session[:check_in]
+    )
     flash[:no_property_message] = "No properties are available on your date"
     erb(:index)
   end
