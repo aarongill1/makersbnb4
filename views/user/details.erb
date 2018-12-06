@@ -31,7 +31,18 @@
 
 <br>
 <h2>Properties Listed</h2>
-<% if @properties != nil %>
+<% if @listings != nil %>
+	<% @listings.each do |listing| %>
+		<hr>
+		<h4><%= listing.title %></h4>
+		<%= listing.description %><br>
+		Price: £<%= listing.price %> per night<br>
+		City: <%= listing.city %><br>
+		<form action="/property/<%= listing.id %>" method="get">
+			<input type="submit" name="view-property-<%=listing.id%>" value="View Property Page">
+		</form>
+		<br>
+	<% end %>
 <% else %>
 	<p>You don't have any properties listed. <a href="/property/new">Add a new property here</a></p>
 <% end %>

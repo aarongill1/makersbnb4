@@ -55,6 +55,7 @@ class MakersBNB < Sinatra::Base
       FROM bookings
       JOIN properties ON bookings.property_id = properties.id;'
     )
+    @listings = Property.all(:user_id => @user.id)
 		erb :'user/details'
 	end
 
