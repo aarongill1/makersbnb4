@@ -92,7 +92,13 @@ class MakersBNB < Sinatra::Base
       :property_id => params[:id],
       :start_date => params[:date_requested],
       :status => 'approved')
-    if @booking_check == nil
+    @property_check = Property.first(
+      :id => params[:id],
+      :available_from.lte => params[:date_requested],
+      :available_to.gte => params[:date_requested]
+    )
+    p @property_check
+    if @booking_check == nil && @property_check != nil
       @booking = Booking.create(
         start_date: params[:date_requested],
         property_id: params[:id],

@@ -20,7 +20,7 @@
 <% if @bookings != nil %>
 	<% @bookings.each do |booking| %>
 		<hr>
-		<%= booking.title %><br>
+		<h4><%= booking.title %></h4>
 		Date requested: <%= booking.start_date %><br>
 		Status: <%= booking.status.capitalize %>
 		<br>
