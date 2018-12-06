@@ -65,6 +65,8 @@ GEM
     highline (2.0.0)
     hirb (0.7.3)
     json (2.1.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     mustermann (1.0.3)
@@ -149,6 +151,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-timestamps
   dm-validations
+  mail
   pg
   rake
   rspec
