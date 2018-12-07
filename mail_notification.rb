@@ -1,38 +1,22 @@
-require 'mail'
+# require 'mail'
 require 'figaro'
-require './credentials.rb'
+require 'net/smtp'
+require './credentials'
 
-class MailNotification
-	attr_accessor :options
-
-	def initialize(acc_email, acc_pwd)
-	@options = { 
-		:address => "smtp.gmail.com",
-    :port    => 587,
-    :user_name => acc_email,
-    :password             => acc_pwd,
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  
-  }
-	end
-
-  Mail.defaults do
-  	delivery_method :smtp, @options
-	end
-
-	def sign_up_email (user_email, user_name)
-		mail = Mail.new do
-			from 			@options[:user_name]
-			to				user_email
-			subject		'Welcome to MakersBnB'
-			body			"Hello #{user_name} and Welcome to MakersBnB"
-		end
-		mail.deliver!
-	end
+class Email
+  def self.create(to, email_cred, email_pwd)
+    our_smtp_server = 'smtp.gmail.com'
+    our_smtp_port = 587
+    our_email = email_cred
+    our_password = email_pwd
+    our_message = "From: <#{our_email}>\nTo: <#{to}>\nSubject: Test"
+    smtp = Net::SMTP.new(our_smtp_server, our_smtp_port)
+    smtp.enable_starttls # this is dependant on the smtp_server's authentication method
+    smtp.start('localhost', our_email, our_password, :login) do |smtp|
+      smtp.send_message our_message, our_email, to
+    end
+  end
 end
 
-cred = Credentials.new
-mailer = MailNotification.new(cred.origin_email, cred.acc_password)
-
-
-mailer.sign_up_email('maxstevenson@msn.com', 'Max')
+cred_1 = Credentials.new
+Email.create("maxstevenson@msn.com", cred_1.sender_email, cred_1.sender_pwd)
