@@ -21,10 +21,10 @@
 <!-- **ADD MESSAGE "You don't have any properties listed", if the user has no properties -->
 <a href="/property/new">Add a new property</a>
 
-<h3>Booking Requests</h3>
-<% @bookings.each do |booking| %> <br>
-<%= booking.start_date %>
-<% end %>
+<h3>Requests for your Properties</h3>
+<% @bookings_for_approval.each do |approval| %>
+<%= approval %>
 
+<% end %>
 </body>
 </html>
