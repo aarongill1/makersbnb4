@@ -1,3 +1,5 @@
 /coverage
 .DS_Store
 credentials.rb
+# Ignore application configuration
+/config/application.yml
