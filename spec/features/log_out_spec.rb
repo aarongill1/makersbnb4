@@ -11,7 +11,7 @@ feature 'Logging out' do
 
 		visit('/')
 		click_link("Login / Sign up")
-		within('form.existing-user') do
+		within('form.sign-in') do
       fill_in('username', with: 'testingAccount1')
       fill_in('password', with: 'password123')
       click_button('Log In')
@@ -22,4 +22,3 @@ feature 'Logging out' do
     expect(current_path).to eq('/')
   end
 end
-

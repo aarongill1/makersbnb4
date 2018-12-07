@@ -12,7 +12,7 @@
       <form class="sign-in" action="/user/login" method="post">
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="Log In">Log In</button>
       </form>
       <p><%= flash[:incorrect_password_message] %></p>
       <h3>Sign Up</h3>
@@ -23,7 +23,7 @@
         <input type="text" name="last_name" placeholder="Last Name">
         <input type="email" name="email" placeholder="email@website.com">
         <input type="text" name="phone_number" placeholder="Phone Number">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="Sign Up">Sign Up</button>
       </form>
     </div>
   </body>

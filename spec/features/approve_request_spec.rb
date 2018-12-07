@@ -3,7 +3,7 @@ feature 'approve requests' do
 
     visit('/')
     click_link('Login / Sign up')
-    within('form.user-details') do
+    within('form.sign-up') do
       fill_in('username', with: 'test_account')
       fill_in('email', with: 'test_account@msn.com')
       fill_in('password', with: 'password123')

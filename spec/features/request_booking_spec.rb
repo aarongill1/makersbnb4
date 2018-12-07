@@ -25,7 +25,7 @@ feature 'request booking' do
     )
 
     visit('user/new')
-    within('form.existing-user') do
+    within('form.sign-in') do
       fill_in('username', with: 'testAccount2')
       fill_in('password', with: 'password123')
       click_button('Log In')
@@ -82,7 +82,7 @@ feature 'request booking' do
       )
 
       visit('user/new')
-      within('form.existing-user') do
+      within('form.sign-in') do
         fill_in('username', with: 'testAccount2')
         fill_in('password', with: 'password123')
         click_button('Log In')
@@ -129,7 +129,7 @@ feature 'request booking' do
       )
 
       visit('user/new')
-      within('form.existing-user') do
+      within('form.sign-in') do
         fill_in('username', with: 'testAccount2')
         fill_in('password', with: 'password123')
         click_button('Log In')
