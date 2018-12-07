@@ -8,6 +8,7 @@ class MakersBNB < Sinatra::Base
   enable :sessions
 
   get '/' do
+    my_password = BCrypt::Password.create("my password")
     @properties = Property.all(
       :available_from.lte => session[:check_in],
       :available_to.gte => session[:check_in]
@@ -36,14 +37,16 @@ class MakersBNB < Sinatra::Base
 	end
 
 	post '/user/create' do
+    my_password = BCrypt::Password.create(params[:password])
 		@user = User.create(
 			username: params[:username],
   		email: params[:email],
   		first_name: params[:first_name],
   		last_name: params[:last_name],
-  		password: params[:password],
+  		password: my_password,
   		phone_number: params[:phone_number]
 		)
+    p @user
 		session[:id] = @user.id
 		redirect 'user/details'
 	end
@@ -74,7 +77,8 @@ class MakersBNB < Sinatra::Base
 
 	post '/user/login' do
 		@user = User.first(:username => params[:username])
-		if @user.password == params[:password]
+    my_password = BCrypt::Password.new(@user.password)
+		if my_password == params[:password]
 			session[:id] = @user.id
 			redirect '/user/details'
 		else
@@ -116,7 +120,7 @@ class MakersBNB < Sinatra::Base
     @booking_to_update.update(:status => "#{new_status}")
     redirect ('/user/details')
   end
-  
+
   post '/booking/request' do
     @booking_check = Booking.first(
       :property_id => params[:id],
