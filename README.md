@@ -56,3 +56,8 @@ Database Setup - first time use only
 6. Open dm.rb in any editor - add to the top before the if statement `ENV['ENVIRONMENT'] = 'test'`.
 7. In terminal run `ruby dm.rb` a second time to create tables for the production database.
 8. Reverse step 6 so that original code is back in place.
+
+Database Diagram
+================
+Inline-style:
+![alt text](MakersbnbDatabaseDiagram.png)
