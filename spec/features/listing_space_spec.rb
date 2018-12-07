@@ -13,9 +13,7 @@ feature 'create listing' do
       click_button('Sign Up')
     end
 
-      click_link('Add a new property')
-
-
+      click_link('Add a new property here')
 
     within('form.property-details') do
     fill_in('title', with: 'Tea House')
