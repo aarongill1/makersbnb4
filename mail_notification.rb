@@ -4,19 +4,21 @@ require 'net/smtp'
 require './credentials'
 
 class Email
-  def self.create(to, email_cred, email_pwd)
+  def self.create(to, email_cred, email_pwd, message_content)
     our_smtp_server = 'smtp.gmail.com'
     our_smtp_port = 587
-    our_email = email_cred
-    our_password = email_pwd
-    our_message = "From: <#{our_email}>\nTo: <#{to}>\nSubject: Test"
+    our_message = "From: MakersBnB <#{email_cred}>\nTo: <#{to}>\nSubject: Test\n#{message_content}" 
     smtp = Net::SMTP.new(our_smtp_server, our_smtp_port)
     smtp.enable_starttls # this is dependant on the smtp_server's authentication method
-    smtp.start('localhost', our_email, our_password, :login) do |smtp|
-      smtp.send_message our_message, our_email, to
+    smtp.start('localhost', email_cred, email_pwd, :login) do |smtp|
+      smtp.send_message our_message, email_cred, to
     end
   end
+
+ 	def self.sign_up
+ 		"Thank you for signing up to MakersBnB!"
+ 	end
 end
 
-cred_1 = Credentials.new
-Email.create("maxstevenson@msn.com", cred_1.sender_email, cred_1.sender_pwd)
+cred = Credentials.new
+Email.create("maxstevenson@msn.com", cred.sender_email, cred.sender_pwd, Email.sign_up)
