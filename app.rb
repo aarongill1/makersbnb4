@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './dm'
+require_relative './mail_notification'
+require_relative './credentials'
 
 class MakersBNB < Sinatra::Base
   register Sinatra::Flash
@@ -43,6 +45,8 @@ class MakersBNB < Sinatra::Base
   		phone_number: params[:phone_number]
 		)
 		session[:id] = @user.id
+		cred = Credentials.new
+		Email.create(@user.email, cred.sender_email, cred.sender_pwd, Email.sign_up)
 		redirect 'user/details'
 	end
 

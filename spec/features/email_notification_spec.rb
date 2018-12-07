@@ -3,6 +3,7 @@ feature 'Email notifications' do
   end
   scenario 'A user receives an email when signing up' do
     email = class_double("Email").as_stubbed_const
+    allow(email).to receive(:create)
     visit '/user/new'
     within('form.sign-up') do
       fill_in('username', with: 'test_account')
@@ -12,7 +13,7 @@ feature 'Email notifications' do
       fill_in('first_name', with: 'test')
       fill_in('last_name', with: 'account')
       click_button('Sign Up')
-      expect(email).to receive(:create).with("test_account@msn.com")
+      expect(email).to receive(:create)
     end
   end
 end

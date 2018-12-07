@@ -19,6 +19,3 @@ class Email
  		"Thank you for signing up to MakersBnB!"
  	end
 end
-
-cred = Credentials.new
-Email.create("maxstevenson@msn.com", cred.sender_email, cred.sender_pwd, Email.sign_up)
