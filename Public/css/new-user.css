@@ -1,0 +1,75 @@
+body {
+  background-image: url(../images/mini-lake-house.jpg);
+  background-size: cover;
+}
+
+.container_1 {
+  width: 210px;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  top: 30px;
+  height: 520px;
+}
+
+.sign-in {
+  text-align: center;
+}
+
+.sign-in input[type="text"] {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sign-in input[type="password"] {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.sign-in .btn-block {
+  width: 195px;
+  margin: auto;
+}
+
+.sign-up {
+  text-align: center;
+}
+
+.sign-up input[type="text"] {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sign-up input[type="email"] {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sign-up input[type="password"] {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sign-up .btn-block {
+  width: 195px;
+  margin: auto;
+  background-color: red;
+  border-color: red;
+  margin-bottom: 10px;
+}
