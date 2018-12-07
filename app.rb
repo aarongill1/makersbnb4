@@ -66,7 +66,7 @@ class MakersBNB < Sinatra::Base
       JOIN properties ON bookings.property_id = properties.id
       WHERE bookings.user_id = #{@user.id};"
     )
-    
+
     @listings = Property.all(:user_id => @user.id)
 
 		erb :'user/details'
@@ -115,7 +115,8 @@ class MakersBNB < Sinatra::Base
      end
     @booking_to_update.update(:status => "#{new_status}")
     redirect ('/user/details')
-
+  end
+  
   post '/booking/request' do
     @booking_check = Booking.first(
       :property_id => params[:id],
