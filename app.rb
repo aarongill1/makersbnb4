@@ -71,7 +71,7 @@ class MakersBNB < Sinatra::Base
 	end
 
 	post '/user/logout' do
-		session[:id] == nil
+		session[:id] = nil
 		redirect '/'
 	end
 
