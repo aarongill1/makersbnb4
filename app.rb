@@ -46,7 +46,10 @@ class MakersBNB < Sinatra::Base
 		)
 		session[:id] = @user.id
 		cred = Credentials.new
-		Email.create(@user.email, cred.sender_email, cred.sender_pwd, Email.sign_up)
+		Email.create(@user.email, 
+			cred.sender_email, 
+			cred.sender_pwd, 
+			Email.sign_up(@user.first_name))
 		redirect 'user/details'
 	end
 

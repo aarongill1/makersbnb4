@@ -15,7 +15,13 @@ class Email
     end
   end
 
- 	def self.sign_up
- 		"Thank you for signing up to MakersBnB!"
+ 	def self.sign_up(name)
+ 		"Hello #{name}. Thank you for signing up to MakersBnB!"
+ 	end
+
+ 	def self.create_property
+ 	end
+
+ 	def self.request_property
  	end
 end

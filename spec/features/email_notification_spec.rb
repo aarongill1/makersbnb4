@@ -2,7 +2,7 @@ feature 'Email notifications' do
   before(:each) do
   end
   scenario 'A user receives an email when signing up' do
-    email = class_double("Email").as_stubbed_const
+    email = double("Email")
     allow(email).to receive(:create)
     visit '/user/new'
     within('form.sign-up') do
@@ -13,6 +13,7 @@ feature 'Email notifications' do
       fill_in('first_name', with: 'test')
       fill_in('last_name', with: 'account')
       click_button('Sign Up')
+      expect(current_path).to eq('/user/create')
       expect(email).to receive(:create)
     end
   end
