@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>MakersBnB</title>
 </head>
 <body>
 	<h1>Profile</h1>
@@ -14,6 +14,10 @@
 		email: <%= @user.email %>
 		<br>
 		phonenumber: <%= @user.phone_number %>
+		<br>
+		<form action="/user/logout" method="post">
+			<input type="submit" value="Log Out">
+		</form>
 	</p>
 <br>
 <h2>Your Bookings</h2>
