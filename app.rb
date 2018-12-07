@@ -71,6 +71,7 @@ class MakersBNB < Sinatra::Base
     )
 
     @listings = Property.all(:user_id => @user.id)
+    p "Listings: #{@listings}"
 
 		erb :'user/details'
 	end
@@ -131,7 +132,6 @@ class MakersBNB < Sinatra::Base
       :available_from.lte => params[:date_requested],
       :available_to.gte => params[:date_requested]
     )
-    p @property_check
     if @booking_check == nil && @property_check != nil
       @booking = Booking.create(
         start_date: params[:date_requested],

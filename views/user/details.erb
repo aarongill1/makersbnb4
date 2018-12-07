@@ -21,7 +21,7 @@
 	</p>
 <br>
 <h2>Your Bookings</h2>
-<% if @bookings != nil %>
+<% if @bookings != [] %>
 	<% @bookings.each do |booking| %>
 		<hr>
 		<h4><%= booking.title %></h4>
@@ -35,7 +35,7 @@
 
 <br>
 <h2>Properties Listed</h2>
-<% if @listings != nil %>
+<% if @listings != [] %>
 	<% @listings.each do |listing| %>
 		<hr>
 		<h4><%= listing.title %></h4>
@@ -47,13 +47,14 @@
 		</form>
 		<br>
 	<% end %>
+	<p><a href="/property/new">Add another property</a></p>
 <% else %>
 	<p>You don't have any properties listed. <a href="/property/new">Add a new property here</a></p>
 <% end %>
-<hr>
+<br>
 
 <h2>Requests for your Properties</h2>
-<% if @bookings_for_approval != nil %>
+<% if @bookings_for_approval != [] %>
 <% @bookings_for_approval.each do |approval| %>
 <hr>
 <h4><%= approval.title %></h4>
