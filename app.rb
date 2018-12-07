@@ -49,25 +49,14 @@ class MakersBNB < Sinatra::Base
 	get '/user/details' do
 		@user = User.get(session[:id])
     @bookings_for_approval = repository(:default).adapter.select(
-      "SELECT bookings.status, bookings.start_date, bookings.end_date, bookings.user_id, properties.title, properties.description
-      FROM properties
-      INNER JOIN users
-      ON properties.user_id = users.id
-      INNER JOIN bookings
-      ON bookings.property_id = properties.id;")
-
+      "SELECT bookings.id, bookings.status, bookings.start_date, bookings.end_date, bookings.user_id,  properties.title, properties.description
       FROM properties
       INNER JOIN users
       ON properties.user_id = users.id
       INNER JOIN bookings
       ON bookings.property_id = properties.id
-      WHERE users.id = 3;
-      p @bookings_for_approval
-
-
+      WHERE users.id = #{@user.id};")
 		erb :'user/details'
-
-
 	end
 
 
@@ -100,7 +89,16 @@ class MakersBNB < Sinatra::Base
 		redirect "/property/#{@property.id}"
 	end
 
-
+  post '/booking/update' do
+    @booking_to_update = Booking.first(params[:id])
+    if params[:host_response]=="Approve"
+       new_status = "#{params[:host_response].downcase}d"
+     else
+       new_status = "#{params[:host_response].downcase}ed"
+     end
+    @booking_to_update.update(:status => "#{new_status}")
+    redirect ('/user/details')
+  end
 
 
 run! if app_file == $0

@@ -21,10 +21,23 @@
 <!-- **ADD MESSAGE "You don't have any properties listed", if the user has no properties -->
 <a href="/property/new">Add a new property</a>
 
-<h3>Requests for your Properties</h3>
+<h2>Requests for your Properties</h2>
+<% if @bookings_for_approval != nil %>
 <% @bookings_for_approval.each do |approval| %>
-<%= approval %>
-
+<hr>
+<h4><%= approval.title %></h4>
+Date requested: <%= approval.start_date %><br>
+Booking status: <%= approval.status.capitalize %><br>
+	<% if approval.status == "requested" %>
+		<form action="/booking/update" method="post">
+			<input type="hidden" value="<%=approval.id%>" name="id">
+			<input type="submit" value="Approve" name="host_response">
+			<input type="submit" value="Reject" name="host_response">
+		</form>
+	<% end %>
+<% end %>
+<% else %>
+    <p>You don't have any bookings requests to approve. Check back later.</p>
 <% end %>
 </body>
 </html>
