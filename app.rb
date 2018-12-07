@@ -70,6 +70,11 @@ class MakersBNB < Sinatra::Base
 		end
 	end
 
+	post '/user/logout' do
+		session[:id] == nil
+		redirect '/'
+	end
+
   post '/property/create' do
 		@property = Property.create(
       user_id: session[:id],
