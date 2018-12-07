@@ -50,3 +50,12 @@ property_2 = Property.create(
 	available_to: 	Date.parse("2019-02-04"),
 	photo_url:"https://tinyurl.com/yc5pekql"
 )
+
+booking_1 = Booking.create(
+	user_id: user_1.id,
+	start_date: Date.parse("2018-12-04"),
+  end_date: Date.parse("2018-12-05"),
+	status: 'Booked',
+	property_id: property_2.user_id,
+
+)
