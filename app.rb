@@ -93,6 +93,5 @@ class MakersBNB < Sinatra::Base
 		redirect "/property/#{@property.id}"
 	end
 
-
-run! if app_file == $0
+	run! if app_file == $0
 end

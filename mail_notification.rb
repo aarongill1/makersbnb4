@@ -23,6 +23,7 @@ class Email
  		"#{name}, You have just listed one new property on MakersBnB.\nWe will notify you when someone has requested to stay at this property."
  	end
 
- 	def self.request_property
+ 	def self.request_property(name, property_name, user_name, from, to)
+ 		"Hi #{name}, #{user_name} just requested to stay at #{property_name} between #{from} until #{to}."
  	end
 end
