@@ -45,10 +45,10 @@ class MakersBNB < Sinatra::Base
   		phone_number: params[:phone_number]
 		)
 		session[:id] = @user.id
-		cred = Credentials.new
+		@cred = Credentials.new
 		Email.create(@user.email, 
-			cred.sender_email, 
-			cred.sender_pwd, 
+			@cred.sender_email, 
+			@cred.sender_pwd, 
 			Email.sign_up(@user.first_name))
 		redirect 'user/details'
 	end
@@ -84,6 +84,12 @@ class MakersBNB < Sinatra::Base
       available_from: params[:date_from],
       available_to: params[:date_to]
 		)
+		@cred = Credentials.new
+		@user = User.get(@property.user_id)
+		Email.create(@user.email, 
+			@cred.sender_email, 
+			@cred.sender_pwd, 
+			Email.create_property(@user.first_name))
 		redirect "/property/#{@property.id}"
 	end
 

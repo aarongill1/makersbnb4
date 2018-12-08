@@ -19,7 +19,8 @@ class Email
  		"Hello #{name}. Thank you for signing up to MakersBnB!"
  	end
 
- 	def self.create_property
+ 	def self.create_property(name)
+ 		"#{name}, You have just listed one new property on MakersBnB.\nWe will notify you when someone has requested to stay at this property."
  	end
 
  	def self.request_property
