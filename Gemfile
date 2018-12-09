@@ -16,6 +16,8 @@ gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-noisy-failures'
 gem 'bcrypt'
+gem 'mail'
+gem 'figaro'
 
 
 
