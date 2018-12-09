@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>MakersBnB</title>
 </head>
 <body>
 	<h1>Profile</h1>
@@ -14,11 +14,62 @@
 		email: <%= @user.email %>
 		<br>
 		phonenumber: <%= @user.phone_number %>
+		<br>
+		<form action="/user/logout" method="post">
+			<input type="submit" value="Log Out">
+		</form>
 	</p>
 <br>
+<h2>Your Bookings</h2>
+<% if @bookings != [] %>
+	<% @bookings.each do |booking| %>
+		<hr>
+		<h4><%= booking.title %></h4>
+		Date requested: <%= booking.start_date %><br>
+		Status: <%= booking.status.capitalize %>
+		<br>
+	<% end %>
+<% else %>
+	<p>You don't have any bookings, why not <a href="/">search through the property listings</a>?</p>
+<% end %>
+
+<br>
+<h2>Properties Listed</h2>
+<% if @listings != [] %>
+	<% @listings.each do |listing| %>
+		<hr>
+		<h4><%= listing.title %></h4>
+		<%= listing.description %><br>
+		Price: £<%= listing.price %> per night<br>
+		City: <%= listing.city %><br>
+		<form action="/property/<%= listing.id %>" method="get">
+			<input type="submit" name="view-property-<%=listing.id%>" value="View Property Page">
+		</form>
+		<br>
+	<% end %>
+	<p><a href="/property/new">Add another property</a></p>
+<% else %>
+	<p>You don't have any properties listed. <a href="/property/new">Add a new property here</a></p>
+<% end %>
+<br>
+
+<h2>Requests for your Properties</h2>
+<% if @bookings_for_approval != [] %>
+<% @bookings_for_approval.each do |approval| %>
 <hr>
-<h3>Properties Listed</h3>
-<!-- **ADD MESSAGE "You don't have any properties listed", if the user has no properties -->
-<a href="/property/new">Add a new property</a>
+<h4><%= approval.title %></h4>
+Date requested: <%= approval.start_date %><br>
+Booking status: <%= approval.status.capitalize %><br>
+	<% if approval.status == "requested" %>
+		<form action="/booking/update" method="post">
+			<input type="hidden" value="<%=approval.id%>" name="id">
+			<input type="submit" value="Approve" name="host_response">
+			<input type="submit" value="Reject" name="host_response">
+		</form>
+	<% end %>
+<% end %>
+<% else %>
+    <p>You don't have any bookings requests to approve. Check back later.</p>
+<% end %>
 </body>
 </html>
