@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'bcrypt'
 require_relative './dm'
 require_relative './mail_notification'
 require_relative './credentials'
@@ -38,12 +39,13 @@ class MakersBNB < Sinatra::Base
 	end
 
 	post '/user/create' do
+    hashed_password = BCrypt::Password.create(params[:password])
 		@user = User.create(
 			username: params[:username],
   		email: params[:email],
   		first_name: params[:first_name],
   		last_name: params[:last_name],
-  		password: params[:password],
+  		password: hashed_password,
   		phone_number: params[:phone_number]
 		)
 		session[:id] = @user.id
@@ -75,14 +77,18 @@ class MakersBNB < Sinatra::Base
     )
 
     @listings = Property.all(:user_id => @user.id)
-    p "Listings: #{@listings}"
 
 		erb :'user/details'
 	end
 
 	post '/user/login' do
 		@user = User.first(:username => params[:username])
-		if @user.password == params[:password]
+    if @user == nil
+      flash[:user_does_not_exist_message] = "No user exists with that user name"
+      redirect '/user/new'
+    end
+    hashed_password = BCrypt::Password.new(@user.password)
+    if hashed_password == params[:password]
 			session[:id] = @user.id
 			redirect '/user/details'
 		else

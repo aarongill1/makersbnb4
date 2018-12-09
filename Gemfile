@@ -19,8 +19,6 @@ gem 'bcrypt'
 gem 'mail'
 gem 'figaro'
 
-
-
 group :test do
   gem 'capybara'
   gem 'rspec'
