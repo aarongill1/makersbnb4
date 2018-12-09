@@ -17,8 +17,6 @@ gem 'dm-timestamps'
 gem 'dm-noisy-failures'
 gem 'bcrypt'
 
-
-
 group :test do
   gem 'capybara'
   gem 'rspec'

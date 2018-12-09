@@ -11,6 +11,7 @@ feature 'approve requests' do
       fill_in('first_name', with: 'host')
       fill_in('last_name', with: 'test_account')
       click_button('Sign Up')
+      expect(current_path).to eq '/user/details'
     end
 
       expect(current_path).to eq '/user/details'

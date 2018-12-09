@@ -16,7 +16,5 @@ feature 'Sign up page' do
     expect(page).to have_content('07777777777')
     expect(page).to have_content('test')
     expect(page).to have_content('account')
-  end 
+  end
 end
-
-

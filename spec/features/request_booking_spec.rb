@@ -6,7 +6,7 @@ feature 'request booking' do
       phone_number: "07738623766",
       first_name: "Test",
       last_name: "Account",
-      password: "password123"
+      password: BCrypt::Password.create('password123')
     )
 
     property = Property.create(
