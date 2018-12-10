@@ -10,7 +10,7 @@ h1 {
 
 .container-1 {
 	display: block;
-	text-align: left;
+	/*text-align: left;*/
 	width: 50%;
 	margin: 0 auto 0 auto;
 	padding: 10px;
@@ -20,7 +20,7 @@ h1 {
 
 .container-2 {
 	display: block;
-	text-align: center;
+	/*text-align: center;*/
 	width: 50%;
 	margin: 0 auto 0 auto;
 	padding: 10px;
@@ -37,7 +37,7 @@ h1 {
 }
 
 input[type="text"] {
-  display: block;
+  display: inline-block;
   margin: auto;
   margin-bottom: 10px;
   border-bottom-right-radius: 0;
@@ -45,6 +45,14 @@ input[type="text"] {
 }
 
 .input-field input[type="text"] {
-	display: inline;
-	text-align: left;
+	display: inline-block;
+  float: left;
+}
+
+.input-field {
+	display: inline-block;
+  float: left;
+  clear: left;
+  width: 250px;
+  text-align: right;
 }
